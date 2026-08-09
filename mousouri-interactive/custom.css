@@ -11,3 +11,18 @@
   display: none !important;
   pointer-events: none !important;
 }
+
+/* Reduce GPU-memory pressure on phones and low-power devices. */
+html[data-performance="low"] [data-framer-name="Grain"],
+html[data-performance="low"] [data-framer-name="Noise"] {
+  display: none !important;
+}
+
+html[data-performance="low"] [style*="will-change"] {
+  will-change: auto !important;
+}
+
+html[data-performance="low"],
+html[data-performance="low"] body {
+  scroll-behavior: auto !important;
+}
