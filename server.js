@@ -6,12 +6,18 @@ const PORT = Number(process.argv[3]) || 3000;
 const ROOT = path.join(__dirname, process.argv[2] || 'mattis-website');
 
 const server = http.createServer((req, res) => {
-  // Disable all caching
-  res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
-  res.setHeader('Pragma', 'no-cache');
-  res.setHeader('Expires', '0');
-  
   const pathname = decodeURIComponent(new URL(req.url, 'http://localhost').pathname);
+  const isVersionedAsset = pathname.startsWith('/_next/static/') ||
+    pathname.startsWith('/assets/');
+
+  if (isVersionedAsset) {
+    res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+  } else {
+    res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+    res.setHeader('Pragma', 'no-cache');
+    res.setHeader('Expires', '0');
+  }
+
   const relativePath = pathname === '/' ? 'index.html' : pathname.replace(/^\/+/, '');
   let filePath = path.resolve(ROOT, relativePath);
 
@@ -64,5 +70,5 @@ const server = http.createServer((req, res) => {
 server.listen(PORT, () => {
   console.log('Server running at http://localhost:' + PORT);
   console.log('Serving from: ' + ROOT);
-  console.log('Cache: DISABLED');
+  console.log('Cache: HTML disabled; versioned assets immutable');
 });
