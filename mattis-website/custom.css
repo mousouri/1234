@@ -1,0 +1,13 @@
+/* Customization that does not interfere with Framer hydration or animations. */
+#__framer-badge-container,
+#template-overlay,
+[data-framer-name="Delete me!"],
+[name="Delete me!"] {
+  display: none !important;
+}
+
+/* Never let Framer's editing overlay lock scrolling on localhost. */
+#__framer-editorbar {
+  display: none !important;
+  pointer-events: none !important;
+}
