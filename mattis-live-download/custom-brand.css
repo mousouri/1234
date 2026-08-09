@@ -1,0 +1,23 @@
+/* Local brand customization. */
+#__framer-badge-container,
+#template-overlay,
+[data-framer-name="Delete me!"],
+[name="Delete me!"] {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* Framer stores scroll-reveal content in a hidden initial state. Keep the
+   downloaded page complete even when its hosted animation runtime is absent. */
+[style*="will-change:transform"][style*="opacity:0"]:not([style*="background: url"]),
+[style*="will-change: transform"][style*="opacity: 0"]:not([style*="background: url"]),
+[data-framer-component-type="RichTextContainer"][style*="opacity:0"],
+[data-framer-component-type="RichTextContainer"][style*="opacity: 0"],
+h1 [style*="opacity:0"],
+h1 [style*="opacity: 0"],
+h2 [style*="opacity:0"],
+h2 [style*="opacity: 0"] {
+  opacity: 1 !important;
+  transform: none !important;
+}

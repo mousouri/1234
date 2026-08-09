@@ -1,0 +1,19 @@
+{
+  "name": "123",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "audit": "node audit-local.js",
+    "repair": "node repair-offline-clone.js",
+    "serve": "node server.js",
+    "test": "node audit-local.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "puppeteer": "^25.5.0"
+  }
+}
