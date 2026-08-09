@@ -5,3 +5,9 @@
 [name="Delete me!"] {
   display: none !important;
 }
+
+/* Never let Framer's editing overlay lock scrolling on localhost. */
+#__framer-editorbar {
+  display: none !important;
+  pointer-events: none !important;
+}

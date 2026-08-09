@@ -17,6 +17,7 @@ function customize(source) {
     .replaceAll('124 City Road, London, EC1V 2NX', 'Dar es Salaam, Tanzania')
     .replaceAll('+1 (555) 400 0123', '0719600648')
     .replaceAll('tel:555-400-0123', 'tel:0719600648')
+    .replaceAll('https://framer.com/edit/init.mjs', './editor-disabled.mjs')
     .replaceAll(
       'https://framerusercontent.com/assets/YUc1UMqfu6cFqEbpKpI1dpKqoes.mp4',
       '/assets/media/hero-video.mp4'
