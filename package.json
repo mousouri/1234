@@ -1,16 +1,16 @@
 {
-  "name": "123",
+  "name": "mousouri-studio",
   "version": "1.0.0",
-  "description": "",
+  "description": "Mousouri Studio website",
   "main": "index.js",
   "scripts": {
-    "audit": "node audit-local.js",
-    "repair": "node repair-offline-clone.js",
+    "audit": "node tools/audit-local.js",
+    "repair": "node tools/repair-offline-clone.js",
     "serve": "node server.js",
-    "test": "node audit-local.js"
+    "test": "node tools/audit-local.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Mousouri",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {

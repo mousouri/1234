@@ -1,19 +1,18 @@
-# Website Clone: https://mattis.framer.website/
+# Mousouri Studio — Website
 
-Created on 8/9/2026, 4:09:58 AM
+Static build of the Mousouri Studio marketing site.
 
 ## Contents
-- index.html - Main HTML file
-- screenshot.png - Full page screenshot
-- page-info.json - Page metadata
-- assets/ - All downloaded assets
+- `index.html` — main HTML file
+- `assets/` — images, fonts, and media
+- `_next/static/chunks/` — JS bundles (Framer Motion runtime + page scripts)
+- `page-info.json` — page metadata
+- `custom.css` / `custom-brand.css` — brand overrides
+- `performance.js` — runtime performance tweaks for low-memory devices
 
-## Statistics
-- Assets downloaded: 93
-- Failed downloads: 2
-- Page title: Mattis® Studio — Conversion-First Design & Development Agency
-
-Open index.html in a browser to view the site.
+Open `index.html` via a local server (see `server.js` in the repo root, or
+`npm run serve`) to view the site — animations and interactions require an
+HTTP server rather than the `file://` protocol.
 
 ## Deploy to Vercel
 

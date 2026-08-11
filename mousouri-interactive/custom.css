@@ -26,3 +26,39 @@ html[data-performance="low"],
 html[data-performance="low"] body {
   scroll-behavior: auto !important;
 }
+
+/* ------------------------------------------------------------------
+ * 60 fps: Framer's SSR promotes hundreds of layers to the compositor
+ * with `will-change: transform`. The browser already promotes elements
+ * while they actually animate, so keeping ~260 layers allocated at rest
+ * only exhausts GPU memory (main cause of dropped frames / stutter).
+ * ------------------------------------------------------------------ */
+
+/* Framer's effect engine reads this custom property when deciding whether
+   to keep stylesheet-driven promotions. Off by default here; performance.js
+   also strips the inline hints from elements that are not animating. */
+:root {
+  --framer-will-change-effect-override: auto;
+}
+
+/* Grain overlay: Framer paints it as a 400% x 400% layer that follows the
+   scroll position (a ~23 MP texture). Keep the visual film-grain but paint
+   just one viewport-sized tile. */
+[data-framer-name="Grain"] [style*="background: url"] {
+  width: 100% !important;
+  height: 100% !important;
+  inset: 0 !important;
+  transform: none !important;
+}
+
+/* Full-screen backdrop blurs are re-rasterized on every scroll frame while
+   their sticky sections are pinned. Fall back to a cheap dark veil on
+   constrained devices. */
+html[data-performance="low"] [data-framer-name="Blur Overlay"] {
+  backdrop-filter: none !important;
+  background-color: rgba(18, 18, 18, 0.18) !important;
+}
+
+html[data-performance="low"] [data-framer-name="Image / Video Wrapper"] {
+  filter: none !important;
+}

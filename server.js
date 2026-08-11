@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 const PORT = Number(process.argv[3]) || 3000;
-const ROOT = path.join(__dirname, process.argv[2] || 'mattis-website');
+const ROOT = path.join(__dirname, process.argv[2] || 'mousouri-interactive');
 
 const server = http.createServer((req, res) => {
   const pathname = decodeURIComponent(new URL(req.url, 'http://localhost').pathname);
